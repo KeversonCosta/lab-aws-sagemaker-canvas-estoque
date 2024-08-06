@@ -9,39 +9,34 @@ Antes de começar, certifique-se de ter uma conta na AWS. Se precisar de ajuda p
 
 ## 🎯 Objetivos Deste Desafio de Projeto (Lab)
 
-![image](https://github.com/digitalinnovationone/lab-aws-sagemaker-canvas-estoque/assets/730492/72f5c21f-5562-491e-aa42-2885a3184650)
 
-- Dê um fork neste projeto e reescreva este `README.md`. Sinta-se à vontade para detalhar todo o processo de criação do seu Modelo de ML para uma "Previsão de Estoque Inteligente".
-- Para isso, siga o [passo a passo] descrito a seguir e evolua as suas habilidades em ML no-code com o Amazon SageMaker Canvas.
-- Ao concluir, envie a URL do seu repositório com a solução na plataforma da DIO.
 
 
 ## 🚀 Passo a Passo
+1. Selecionar Dataset
 
-### 1. Selecionar Dataset
+    O dataset utilizado foi disponibilizado neste projeto, na seção de datasets.
+    Possuindo exatas 1.001 rows e pouco mais de 5.000 células, se trata de um dataset até que robusto. print dataset
+   ![351154774-c4ed8b6d-887b-4ef2-9482-3113d38c5b5e](https://github.com/user-attachments/assets/3b7b13ce-2956-4a2c-b1f1-b883d8249982)
 
--   Navegue até a pasta `datasets` deste repositório. Esta pasta contém os datasets que você poderá escolher para treinar e testar seu modelo de ML. Sinta-se à vontade para gerar/enriquecer seus próprios datasets, quanto mais você se engajar, mais relevante esse projeto será em seu portfólio.
--   Escolha o dataset que você usará para treinar seu modelo de previsão de estoque.
--   Faça o upload do dataset no SageMaker Canvas.
+2. Construir/Treinar
+Ao importar o dataset, devemos escolher a QUANTIDADE_ESTOQUE como target e a tabela ID_PRODUTO como item id.
+Não fiz muitas alterações nas configurações, apenas adicionei a use schedule holliday.
+![351158213-fa6f0105-eb81-4de4-9ee0-4475743be1bd](https://github.com/user-attachments/assets/3c3ee655-27ca-49d1-968b-2e85b760c80d)
 
-### 2. Construir/Treinar
+3. Analisar
+Com tudo já configurado, utilizei o método Quick build para realizar a análise.
+Considero que as métricas de Avg.wQL, WAPE, MAPE, RMSE e WASE bem satistfatórias. 
+![351159136-e2021304-bc7b-4083-a27f-ecd5cd306e38](https://github.com/user-attachments/assets/c24dc8a8-d1f9-4db9-a0f3-a802258ccf47)
+Outro ponto de vista: PRECO = 9.14% HOLLIDAY_BR = 2.79% FLAG_PROMOCAO = 0.00% 
+![351159171-3c93edb9-8c84-4251-a866-deaffd298d47](https://github.com/user-attachments/assets/7f648a76-7036-4d11-b6c5-966e655be1db)
 
--   No SageMaker Canvas, importe o dataset que você selecionou.
--   Configure as variáveis de entrada e saída de acordo com os dados.
--   Inicie o treinamento do modelo. Isso pode levar algum tempo, dependendo do tamanho do dataset.
+4. Prever
+Aos realizar as predições de maneira singular, podemos encontrar métricas como P10, P50 e P90.
+P10 é um indicativo, digamos, "pessimista".
+P50 seria um indicativo neutro.
+Enquanto o P90 é mais otimista e prevê números mais satisfatórios.
+![351160134-8d5f3916-b8de-47dd-9bd4-235a3a379609](https://github.com/user-attachments/assets/7e4cbac9-6c7d-4c6d-b901-6f6ceae3b193)
 
-### 3. Analisar
 
--   Após o treinamento, examine as métricas de performance do modelo.
--   Verifique as principais características que influenciam as previsões.
--   Faça ajustes no modelo se necessário e re-treine até obter um desempenho satisfatório.
 
-### 4. Prever
-
--   Use o modelo treinado para fazer previsões de estoque.
--   Exporte os resultados e analise as previsões geradas.
--   Documente suas conclusões e qualquer insight obtido a partir das previsões.
-
-## 🤔 Dúvidas?
-
-Esperamos que esta experiência tenha sido enriquecedora e que você tenha aprendido mais sobre Machine Learning aplicado a problemas reais. Se tiver alguma dúvida, não hesite em abrir uma issue neste repositório ou entrar em contato com a equipe da DIO.
